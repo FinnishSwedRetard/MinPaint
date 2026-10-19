@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ef">
+    <meta name="description" content="The internet's shared canvas. Add a pixel. Become art history.">
+    <title>le art — MinPaint</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="MinPaint home"><span class="brand-mark"></span>minpaint</a>
+        <div class="live-indicator"><span></span> THE INTERNET'S CANVAS</div>
+        <a class="about-link" href="#how-it-works">THE LORE <span aria-hidden="true">↓</span></a>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <h1 id="page-title" aria-label="le art"><span class="wave-letter">l</span><span class="wave-letter">e</span><span class="wave-space"> </span><span class="wave-letter">a</span><span class="wave-letter">r</span><span class="wave-letter">t</span></h1>
+        </div>
+        <div class="canvas-facts" aria-label="Canvas information">
+          <div><span class="fact-label">THE BOARD</span><strong>1920 <i>×</i> 1080</strong></div>
+          <div><span class="fact-label">PIXELS YEETED</span><strong id="painted-count">—</strong></div>
+          <div><span class="fact-label">YOUR NEXT PIXEL</span><strong id="cooldown" class="cooldown">READY <span class="ready-dot"></span></strong></div>
+        </div>
+      </section>
+
+      <section class="canvas-section" aria-label="Shared pixel canvas">
+        <div class="canvas-frame">
+          <div class="canvas-viewport" id="canvas-viewport">
+            <canvas id="canvas" width="1920" height="1080" aria-label="Shared canvas, 1920 by 1080 pixels. Select a color and click a pixel to paint it."></canvas>
+          </div>
+          <div class="canvas-loading" id="loading"><span class="loader"></span><span>summoning the pixels…</span></div>
+        </div>
+        <div class="canvas-caption">
+          <span><span class="cursor-icon" aria-hidden="true">＋</span> <span id="coordinates">FIND YOUR PIXEL</span></span>
+          <div class="zoom-controls" role="group" aria-label="Canvas zoom controls">
+            <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+            <output id="zoom-level" aria-live="polite">100%</output>
+            <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" id="zoom-reset" class="zoom-reset">RESET</button>
+          </div>
+          <span class="canvas-hint">ZOOM IN. PLACE YOUR PIXEL. CHANGE HISTORY.</span>
+        </div>
+      </section>
+
+      <section class="paint-panel" aria-label="Paint controls">
+        <div class="color-control">
+          <label class="control-label" for="color-picker">PICK YOUR VIBE</label>
+          <label class="color-picker-wrap" for="color-picker">
+            <input id="color-picker" type="color" value="#f05c35" aria-label="Choose a paint color">
+            <span id="color-value">#F05C35</span>
+            <span class="picker-arrow" aria-hidden="true">⌄</span>
+          </label>
+          <div class="swatches" aria-label="Quick colors">
+            <button type="button" class="swatch selected" data-color="#f05c35" aria-label="Warm orange"></button>
+            <button type="button" class="swatch" data-color="#efc84a" aria-label="Yellow"></button>
+            <button type="button" class="swatch" data-color="#4a9b74" aria-label="Green"></button>
+            <button type="button" class="swatch" data-color="#4e81d9" aria-label="Blue"></button>
+            <button type="button" class="swatch" data-color="#a66bc4" aria-label="Purple"></button>
+            <button type="button" class="swatch" data-color="#252a31" aria-label="Charcoal"></button>
+          </div>
+        </div>
+        <div class="paint-instruction"><span class="instruction-icon" aria-hidden="true">✳</span><span id="status-message" role="status">Click a square. Become art history.</span></div>
+        <div class="rate-limit"><span class="clock-icon" aria-hidden="true">◷</span><span>1 pixel per legend<br><strong>every 60 seconds</strong></span></div>
+      </section>
+
+      <footer id="how-it-works">
+        <span>a masterpiece, probably</span>
+        <span>SHARED BRAIN CELL: ONLINE <span class="footer-dot"></span></span>
+      </footer>
+    </main>
+  </body>
+</html>
